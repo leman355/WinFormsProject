@@ -20,7 +20,7 @@ namespace WinFormsProject
             if (ValidateUser(email, password))
             {
                 //this.Hide();
-                GetSUser currentUser = GetCurrentUser(email, password);
+                GetUser currentUser = GetCurrentUser(email, password);
                 //SignUp mainForm = new SignUp(currentUser);
                 //mainForm.ShowDialog();
                 //this.Close();
@@ -31,11 +31,17 @@ namespace WinFormsProject
                     adminForm.ShowDialog();
                     this.Close();
                 }
-                else
+                else if (currentUser.RoleName == "Member")
                 {
+                    //this.Hide();
+                    //User userForm = new User(currentUser);
+                    //userForm.ShowDialog();
+                    //this.Close();
+
                     this.Hide();
-                    SignUp mainForm = new SignUp(currentUser);
-                    mainForm.ShowDialog();
+                    EditUser editUser = GetEditUser(currentUser);
+                    User userForm = new User(editUser);
+                    userForm.ShowDialog();
                     this.Close();
                 }
             }
@@ -44,6 +50,22 @@ namespace WinFormsProject
                 MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private EditUser GetEditUser(GetUser currentUser)
+        {
+            return new EditUser()
+            {
+                Id = currentUser.Id,
+                Name = currentUser.Name,
+                Surname = currentUser.Surname,
+                Email = currentUser.Email,
+                Password = "",
+                Birthday = currentUser.Birthday,
+                RoleId = currentUser.RoleId,
+                Balance = currentUser.Balance
+            };
+        }
+
+
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
@@ -81,19 +103,19 @@ namespace WinFormsProject
             }
         }
 
-        private GetSUser GetCurrentUser(string email, string password)
+        private GetUser GetCurrentUser(string email, string password)
         {
-            GetSUser user = null;
+            GetUser user = null;
             try
             {
                 using (var connection = new SqlConnection("Server=WIN-OO1ICO19G9E;Database=WindowsFormsDb;Trusted_Connection=True;"))
                 {
                     connection.Open();
                     var cmd = connection.CreateCommand();
-                    cmd.CommandText = @"SELECT u.Name, u.Surname, u.Email, u.Birthday, r.Name AS RoleName, u.Balance 
-                                        FROM [User] u 
-                                        JOIN [Role] r ON u.RoleId = r.Id 
-                                        WHERE u.Email = @Email AND u.Password = @Password";
+                    cmd.CommandText = @"SELECT u.Id, u.Name, u.Surname, u.Email, u.Birthday, r.Name AS RoleName, r.Id AS RoleId, u.Balance 
+                                FROM [User] u 
+                                JOIN [Role] r ON u.RoleId = r.Id 
+                                WHERE u.Email = @Email AND u.Password = @Password";
                     cmd.Parameters.Add(new SqlParameter("@Email", email));
                     cmd.Parameters.Add(new SqlParameter("@Password", password));
 
@@ -101,13 +123,15 @@ namespace WinFormsProject
                     {
                         if (reader.Read())
                         {
-                            user = new GetSUser()
+                            user = new GetUser()
                             {
+                                Id = Convert.ToInt32(reader["Id"]),
                                 Name = reader["Name"].ToString(),
                                 Surname = reader["Surname"].ToString(),
                                 Email = reader["Email"].ToString(),
                                 Birthday = Convert.ToDateTime(reader["Birthday"]),
                                 RoleName = reader["RoleName"].ToString(),
+                                RoleId = Convert.ToInt32(reader["RoleId"]),
                                 Balance = Convert.ToSingle(reader["Balance"])
                             };
                         }

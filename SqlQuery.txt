@@ -35,7 +35,7 @@ create table Cart(
 Id int primary key identity,
 UserId int foreign key references [User](Id),
 ProductId int foreign key references Product(Id),
-Count int
+Count float
 );
 
 insert into Role (Name) values
@@ -43,10 +43,12 @@ insert into Role (Name) values
 ('Member');
 
 insert into [User] (Name, Surname, Email, Password, Birthday, RoleId, Balance, IsDeleted)
-values ('test1', 'test1', 'test1', 'test1', '1990-07-19', 1, 1000.97, 0),
-       ('test2', 'test2', 'test2', 'test2', '1983-10-26', 1, 500.45, 0),
-       ('test3', 'test3', 'test3', 'test3', '1988-04-01', 2, 70.4, 0),
-       ('test4', 'test4', 'test4', 'test4', '1953-12-11', 2, 44.5, 0);
+values ('AdminName', 'AdminSurname', 'admin@example.com', 'admin', '1990-07-19', 1, 1000.97, 0),
+       ('MemberName', 'MemberSurname', 'member@example.com', 'member', '1983-10-26', 1, 500.45, 0),
+       ('Lillie', 'Chandler', 'lilieChandler@example.com', 'LilieChandler', '1988-04-01', 1, 70.4, 0),
+       ('Marco', 'Williams', 'marcoWilliams@example.com', 'MarcoWilliams', '1953-12-11', 2, 44.5, 0),
+       ('Nia', 'Ortiz', 'niaOrtiz@example.com', 'niaOrtiz', '1993-05-16', 2, 310.7, 0),
+       ('Stevie', 'Rowe', 'stevieRowe@example.com', 'stevieRowe', '1979-03-20', 2, 570.6, 0);
 
 insert into Category (Name)
 values ('Citrus fruits'),

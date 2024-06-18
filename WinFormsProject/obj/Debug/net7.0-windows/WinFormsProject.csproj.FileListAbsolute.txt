@@ -27,3 +27,8 @@ C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Deb
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.UserEdit.resources
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.ProductAdd.resources
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.ProductEdit.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.Products.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.Users.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.Deposit.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.User.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.Shop.resources

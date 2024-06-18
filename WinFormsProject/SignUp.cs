@@ -11,11 +11,11 @@ namespace WinFormsProject
     {
         public event EventHandler RegistrationSuccessful;
 
-        private GetSUser _currentUser;
-        public GetSUser RegisteredUser { get; private set; }
+        private GetUser _currentUser;
+        public GetUser RegisteredUser { get; private set; }
         private bool _isRegistrationSuccessful = false;
 
-        public SignUp(GetSUser currentUser)
+        public SignUp(GetUser currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;

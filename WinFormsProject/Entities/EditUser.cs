@@ -15,6 +15,7 @@ namespace WinFormsProject.Entities
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
         public int RoleId { get; set; }
+        public string RoleName { get; set; }
         public float Balance { get; set; }
     }
 }
