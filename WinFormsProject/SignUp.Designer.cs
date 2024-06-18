@@ -99,7 +99,7 @@
             btn_signup.BackColor = Color.PowderBlue;
             btn_signup.FlatStyle = FlatStyle.Popup;
             btn_signup.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_signup.Location = new Point(566, 438);
+            btn_signup.Location = new Point(466, 424);
             btn_signup.Name = "btn_signup";
             btn_signup.Size = new Size(128, 32);
             btn_signup.TabIndex = 5;

@@ -66,7 +66,7 @@ namespace WinFormsProject
                 {
                     connection.Open();
                     var cmd = connection.CreateCommand();
-                    cmd.CommandText = @"SELECT COUNT(1) FROM [User] WHERE Email = @Email AND Password = @Password";
+                    cmd.CommandText = @"SELECT COUNT(1) FROM [User] WHERE Email = @Email AND Password = @Password AND IsDeleted = 0";
                     cmd.Parameters.Add(new SqlParameter("@Email", email));
                     cmd.Parameters.Add(new SqlParameter("@Password", password));
 

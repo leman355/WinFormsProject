@@ -1,7 +1,9 @@
-using WinFormsProject.Entities;
+using System;
 using System.Data;
-using System.Globalization;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Windows.Forms;
+using WinFormsProject.Entities;
 
 namespace WinFormsProject
 {
@@ -13,7 +15,33 @@ namespace WinFormsProject
         {
             InitializeComponent();
             _editUser = editUser;
+            PopulateRoles();
             DisplayUserData();
+        }
+
+        private void PopulateRoles()
+        {
+            try
+            {
+                using (var connection = new SqlConnection("Server=WIN-OO1ICO19G9E;Database=WindowsFormsDb;Trusted_Connection=True;"))
+                {
+                    connection.Open();
+                    var cmd = connection.CreateCommand();
+                    cmd.CommandText = "SELECT Id, Name FROM [Role]";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable rolesTable = new DataTable();
+                    adapter.Fill(rolesTable);
+
+                    cmb_roles.DisplayMember = "Name";
+                    cmb_roles.ValueMember = "Id";
+                    cmb_roles.DataSource = rolesTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to retrieve roles: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DisplayUserData()
@@ -24,10 +52,10 @@ namespace WinFormsProject
             txt_password.Text = _editUser.Password;
             dt_birthday.Value = _editUser.Birthday;
             cmb_roles.SelectedValue = _editUser.RoleId;
-            txb_balance.Text = _editUser.Balance.ToString();
+            txb_balance.Text = _editUser.Balance.ToString(CultureInfo.InvariantCulture);
         }
 
-        private void btn_user_edit(object sender, EventArgs e)
+        private void btn_userEdit_Click(object sender, EventArgs e)
         {
             _editUser.Name = txb_name.Text;
             _editUser.Surname = txb_surname.Text;

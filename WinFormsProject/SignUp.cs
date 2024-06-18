@@ -111,7 +111,7 @@ namespace WinFormsProject
                     cmd.Parameters.Add(new SqlParameter("@Birthday", model.Birthday));
                     cmd.Parameters.Add(new SqlParameter("@RoleId", model.RoleId));
                     cmd.Parameters.Add(new SqlParameter("@Balance", model.Balance));
-                    cmd.Parameters.Add(new SqlParameter("@IsDeleted", false)) ;
+                    cmd.Parameters.Add(new SqlParameter("@IsDeleted", false));
 
                     MessageBox.Show($"User '{model.Name} {model.Surname}' successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _isRegistrationSuccessful = true;

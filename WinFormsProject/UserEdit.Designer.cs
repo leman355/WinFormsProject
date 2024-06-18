@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            contextMenuStrip1 = new ContextMenuStrip(components);
             lbl_userInfo = new Label();
             txb_balance = new TextBox();
             cmb_roles = new ComboBox();
@@ -47,11 +45,6 @@
             label1 = new Label();
             btn_userEdit = new Button();
             SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // lbl_userInfo
             // 
@@ -207,6 +200,7 @@
             btn_userEdit.TabIndex = 32;
             btn_userEdit.Text = "Edit";
             btn_userEdit.UseVisualStyleBackColor = false;
+            btn_userEdit.Click += btn_userEdit_Click;
             // 
             // UserEdit
             // 
@@ -236,8 +230,6 @@
         }
 
         #endregion
-
-        private ContextMenuStrip contextMenuStrip1;
         private Label lbl_userInfo;
         private TextBox txb_balance;
         private ComboBox cmb_roles;

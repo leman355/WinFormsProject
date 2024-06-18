@@ -25,3 +25,5 @@ C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Deb
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.SignUp.resources
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.Admin.resources
 C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.UserEdit.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.ProductAdd.resources
+C:\Users\user\source\repos\AgileSolutionsWinFormsProject\WinFormsProject\obj\Debug\net7.0-windows\WinFormsProject.ProductEdit.resources
